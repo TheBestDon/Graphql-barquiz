@@ -1,0 +1,39 @@
+{
+    "env": {
+      //remove either of the lines below if you don't need it
+      //enable nodejs environment
+      "node": true,
+      //enable browser environment
+      "browser": true,
+      "mongo": true
+    },
+    "globals": {
+      //place settings for globals here, such as
+      "exampleGlobalVariable": true,
+      "Promise": true
+    },
+    "rules": {
+      //enable ESLint rules, such as
+      "eqeqeq": ["error", "smart"],
+      "prettier/prettier": "error",
+      "curly": 2
+    },
+    "plugins": [
+      //you can put plugins here
+      "react",
+      "prettier"
+      
+    ],    
+    "parserOptions": {
+      "ecmaVersion": 6,
+      "sourceType": "module",
+      "ecmaFeatures": {
+          "jsx": true
+        }
+      },
+    "extends": ["eslint:recommended", "plugin:react/recommended"],
+
+    "settings": {
+      
+    }
+}
