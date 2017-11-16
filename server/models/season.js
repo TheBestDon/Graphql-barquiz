@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const SeasonSchema = new Schema({
   seasonName: String,
-  host: {
+  user: {
     type: Schema.Types.ObjectId,
     ref: "user"
   },

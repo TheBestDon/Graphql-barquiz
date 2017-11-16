@@ -9,7 +9,13 @@ const UserSchema = new Schema({
   email: String,
   password: String,
   firstName: String,
-  lastName: String
+  lastName: String,
+  seasons: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "season"
+    }
+  ]
 });
 
 // The user's password is never saved in plain text.  Prior to saving the
@@ -48,6 +54,12 @@ UserSchema.methods.comparePassword = function comparePassword(
   bcrypt.compare(candidatePassword, this.password, (err, isMatch) => {
     cb(err, isMatch);
   });
+};
+
+UserSchema.statics.findSeasons = function(id) {
+  return this.findById(id)
+    .populate("seasons")
+    .then(user => user.seasons);
 };
 
 mongoose.model("user", UserSchema);
